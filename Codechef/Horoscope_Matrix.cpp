@@ -15,5 +15,13 @@ int main(){
             }
             V.push_back(V1);
         }
+        for(int j=0;j<n;j++){
+            for(int k=0;k<m;k++){
+                sumas[k+(n-1)-j]+=V[j][k];
+            }
+        }
+        for(auto x:sumas){
+            cout<<x<<" ";
+        }
     }
 }
