@@ -20,15 +20,44 @@ int main(){
                 C[k+n-1-j][V[j][k]]++;
             }
         }
-        long long Q,x,y,z,mal=0;
+        long long Q,x,y,z,mal;
+        bool com;
+        cin>>Q;
         while(Q--){
             cin>>x>>y>>z;
+            x--;
+            y--;
             C[y+n-1-x][V[x][y]]--;
             C[y+n-1-x][z]++;
+            V[x][y]=z;
+            bool estamal=false;
+            for(auto x:C){
+                bool com=false;
+                bool com2=false;
+                for(auto y:x){
+                    long long xd=y.second;
+                    long long lol=y.first;
+                    if(xd>0){
+                        if(com2){
+                            com=true;
+                            break;
+                        }else{
+                            com2=true;
+                        }
+                    }
+                }
+                if(com){
+                    estamal=true;
+                    break;
+                }
+            }
+            if(estamal){
+                cout<<"No"<<"\n";
+            }else{
+                cout<<"Yes"<<"\n";
+            }
         }
     }
 }
-//no logre acabar pero tengo una idea en la que podría hacer un mapa por cada diagonal y luego comprobar que todos esten en 0 menos uno(del que va a estar compuesto la diagonal) y si es así esa diagonal esta bien, luego 
-//un contador que diga cuantas diagonales estan mal y si en la query el contador>0 entonces la matriz esta mal o si no esta bien, pero lo implementare mañana porque ya me esta doliendo la cabeza
-//pd: ya no haré los problemas a última hora
-//pd2: al final decidí avanzar lo más que pueda hoy 22 de octubre
+//Partial correct 40%... TLE
+//creo que cambiare de enfoque xd;
