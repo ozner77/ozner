@@ -5,44 +5,35 @@ int main(){
     cin>>t;
     while(t--){
         long long ant=-1;
-        long long menor=1000000000000;
+        long long menor;
         map<long long,long long> M;
         vector<long long> V;
         M.clear();
         V.clear();
         cin>>n;
+        long long necesito=n;
         long long con=0;
         while(n--){
             cin>>a;
             if(a!=ant){
+                ant=a;
                 M[a]++;
                 if(con==0){
-                M[a]--;
+                    M[a]--;
                 }
-                ant=a;
-                V.push_back(a);
             }
+            if(con==necesito-1){
+                    M[a]--;
+                }
             con++;
         }
-        long long actual;
+        menor=M[a];
         for(auto x:M){
             long long xd=x.second;
-            if(xd<=menor){
-                actual=x.first;
-                if(V[0]==actual){
-                    menor=xd;
-                }else if(V[V.size()-1]==actual){
-                    menor=xd;
-                }
+            if(xd<menor){
+                menor=xd;
             }
         }
-        long long res=menor+1;
-        if(V[0]==actual){
-            res--;
-        }
-        if(V[V.size()-1]==actual){
-            res--;
-        }
-        cout<<res<<"\n";
+        cout<<menor+1<<"\n";
     }
 }
