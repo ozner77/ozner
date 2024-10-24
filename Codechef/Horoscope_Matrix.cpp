@@ -20,8 +20,17 @@ int main(){
                 C[k+n-1-j][V[j][k]]++;
             }
         }
-        long long Q,x,y,z,mal;
-        bool com;
+        vector<vector<long long>> longi;
+        for(int j=0;j<n;j++){
+            vector<long long> temp;
+            for(int k=0;k<m;k++){
+                long long jaja=C[k+n-1-j][V[j][k]];
+                temp.push_back(jaja);
+            }
+            longi.push_back(temp);
+        }
+        long long Q,x,y,z,mal=0;
+        vector<long long> posicionesmal(n+m-1,0);
         cin>>Q;
         while(Q--){
             cin>>x>>y>>z;
@@ -30,34 +39,23 @@ int main(){
             C[y+n-1-x][V[x][y]]--;
             C[y+n-1-x][z]++;
             V[x][y]=z;
-            bool estamal=false;
-            for(auto x:C){
-                bool com=false;
-                bool com2=false;
-                for(auto y:x){
-                    long long xd=y.second;
-                    long long lol=y.first;
-                    if(xd>0){
-                        if(com2){
-                            com=true;
-                            break;
-                        }else{
-                            com2=true;
-                        }
-                    }
+            if(C[y+n-1-x][V[x][y]]==longi[x][y]){
+                if(posicionesmal[y+n-1-x]==1){
+                    mal--;
+                    posicionesmal[y+n-1-x]=0;
                 }
-                if(com){
-                    estamal=true;
-                    break;
+            }else{
+                if(posicionesmal[y+n-1-x]==0){
+                    posicionesmal[y+n-1-x]=1;
+                    mal++;
                 }
             }
-            if(estamal){
-                cout<<"No"<<"\n";
+            if(mal==0){
+                cout<<"Yes\n";
             }else{
-                cout<<"Yes"<<"\n";
+                cout<<"No\n";
             }
         }
     }
 }
-//Partial correct 40%... TLE
-//creo que cambiare de enfoque xd;
+//VAMOOOOOOOOOS al fin...
