@@ -28,15 +28,17 @@ int main(){
         while (l <= r) {
             m = l + (r - l) / 2;
             if (xd[m] > uwu) {
-                r = m + 1;
+                l = m + 1;
             } else {
                 r = m - 1;
             }
         }
         if(uwu>=xd[m]){
-            cout<<m;
             xd[m]=uwu;
             res[V[con][2]]=m;
+        }else{
+            xd[m+1]=uwu;
+            res[V[con][2]]=m+1;
         }
         con++;
     }
@@ -44,3 +46,4 @@ int main(){
         cout<<x;
     }
 }
+//agradecido por el likes, necesito dejar de dejar todo a ultima hora
