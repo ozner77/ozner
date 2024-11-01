@@ -1,47 +1,30 @@
-
+#include <traffic.h>
 #include <bits/stdc++.h>
- 
-#define _USE_MATH_DEFINES
-#define INF LLONG_MAX
-#define MOD 1000000007
- 
-#define endl "\n"
-#define sp " "
- 
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
- 
-#define f1(i, x) for(auto &i : x)
-#define f2(i, x, j) for(ll i = j; i < x; i++)
- 
-#define raya() cout << endl << "====================================" << endl
-#define dbg(x) cerr << #x << ": " << x << endl;
- 
 using namespace std;
-using ll = long long;
- 
-int LocateCentre(int n, int p[], int s[], int d[]){
-    vector<int> pref(n + 1);
-    f2(i, n, 0){
-        pref[i + 1] = p[i] + pref[i];
+int LocateCentre(int N, int P[], int S[], int D[]){
+    vector<long long> V;
+    V.push_back(P[0]);
+    for(int i=1;i<N;i++){
+        V.push_back(V[i-1]+P[i]);
     }
-    int ansa = 0, ma = pref[n];
-    f2(i, n + 1, 1){
-        int x = pref[i - 1];
-        int y = pref[n] - pref[i];
-        int t = max(x, y);
-        if(t < ma){
-            ansa = i - 1;
-            ma = t;
+    long long minmax=10000000000;
+    long long res=0;
+    for(int i=0;i<N;i++){
+        long long a=V[N-1]-V[i];
+        long long b=V[i]-P[i];
+        long long c=max(a,b);
+        if(c<minmax){
+            minmax=c;
+            res=i;
         }
     }
-    return ansa;
+    return res;
 }
-int main(){
+/*int main(){
     long long N=5;
     int P[]={1,2,3,4,5};
     int S[]={1,2,3,4,5};
     int D[]={1,2,3,4,5};
     long long res=LocateCentre(N,P,S,D);
     cout<<res;
-}
+}*/
