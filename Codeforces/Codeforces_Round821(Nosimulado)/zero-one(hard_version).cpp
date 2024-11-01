@@ -63,4 +63,5 @@ int main() {
 			}
 		}
     }
-}    
+}
+//Ming eres demasiado bueno para este mundo
