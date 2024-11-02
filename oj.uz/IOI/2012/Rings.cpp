@@ -40,7 +40,7 @@ int CountCritical(){
     }
     return critical;
 }
-int main(){
+/*int main(){
     Init(5);
     Link(0,2);
     Link(0,3);
@@ -48,4 +48,6 @@ int main(){
     Link(3,4);
     int res=CountCritical();
     cout<<res;
-}
+}*/
+//me dio bien en 3 casos de pruebas...
+//ma falta comprobar que tenga solo un incio y un final y ya tengo 20 puntos creo
