@@ -15,30 +15,7 @@ void Link(int A,int B){
     sumas[B]++;
 }
 int CountCritical(){
-    int critical=0;
-    long long jaja=V.size();
-    for(int i=0;i<jaja;i++){
-        bool es=true;
-        for(int j=0;j<jaja;j++){
-            if(i!=j){
-                if(V[j][i]==1){
-                    if(sumas[j]-1>2){
-                        es=false;
-                        break;
-                    }
-                }else{
-                    if(sumas[j]>2){
-                        es=false;
-                        break;
-                    }
-                }
-            }
-        }
-        if(es){
-            critical++;
-        }
-    }
-    return critical;
+    
 }
 /*int main(){
     Init(5);
