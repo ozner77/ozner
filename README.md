@@ -1,2 +1,1 @@
-# ozner
-a por la disciplina...
+no me salio el traffic :(
