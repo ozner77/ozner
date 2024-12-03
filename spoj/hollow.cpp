@@ -3,13 +3,14 @@ using namespace std;
 int main(){
     long long a,b;
     while(cin>>a>>b){
+        int aux=b;
         if(a==0){
             break;
         }
         long long x;
         vector<long long> V;
         map<long long,long long> M;
-        long long jaja;
+        long long jaja=INT_MAX;
         bool com=true;
         long long sum=0;
         while(b--){
@@ -26,6 +27,11 @@ int main(){
             }
         }
         bool com2=true;
+        if(jaja==INT_MAX){
+            for(int i=1;i<=aux;i++){
+                cout<<i<<" ";
+            }
+        }
         for(long long i=0;i<V.size();i++){
             if(!com2){
                 cout<<i+1<<" ";
@@ -41,5 +47,5 @@ int main(){
         cout<<"\n";
     }
 }
-//NO SE PORQUE ME DA WA, estoy seguro que esta bien :(
-//técnicamen
+//no me daba cuando todos los mods eran iguales...
+// :D
