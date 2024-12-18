@@ -7,5 +7,9 @@ void fun(){
 
 }
 int main(){
-
+    ll t;
+    cin>>t;
+    while(t--){
+        
+    }
 }
