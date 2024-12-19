@@ -7,7 +7,7 @@ class SparseTable{
     vector<vector<ll>>st;
     ll getLog2(ll x){
         ll log=0;
-        while(1<<(log+1)<=x){
+        while(1<(log+1)<=x){
             log++;
         }
         return log;
