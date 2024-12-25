@@ -1,13 +1,23 @@
 #include <bits/stdc++.h>
+#define ll long long
 using namespace std;
-void init(string a,string b){
-
-}
-int getdistance(int x,int y){
-
-}
-int main(){
-    string a,b;
-    cin>>a>>b;
-    init(a,b);
+int main() {
+    long long t;
+    cin>>t;
+    double caca=log(4);
+    while(t--){
+    ll numero;
+    cin >> numero;
+    ll con=0;
+    if (numero > 3) {
+        while (numero>3) {
+        numero = numero / 4;
+        con++;
+        }
+        ll res=pow(2,con);
+        cout<<res<<"\n";
+    }else{
+        cout<<numero<<"\n";
+    }
+    }
 }
