@@ -137,3 +137,4 @@ int main(){
         cout<<res+nodos2[i].first-bst<<"\n";
     }
 }
+//https://codeforces.com/contest/609/problem/E
