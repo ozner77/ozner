@@ -72,3 +72,4 @@ int main(){
 	}
 }
 //quize optimizar la solucion que envie ayer,me gusto este problema al final
+//https://codeforces.com/contest/508/problem/D
