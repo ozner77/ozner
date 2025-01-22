@@ -47,3 +47,5 @@ int main(){
         }
     }
 }
+//fenwick_tree>>>>
+//ahora a ver si me sale balanced photo

@@ -1,15 +1,20 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+using namespace std;
 #define ll long long
 #define pb push_back
 #define mp make_pair
-#include <bits/stdc++.h>
-using namespace std;
-void fun(){
-
-}
+#define f first
+#define s second
+#define all(x) x.begin(), x.end()
+#define rall(x) x.rbegin(), x.rend()
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef pair<ll,ll> pll;
+typedef pair<int,int> pii;
+typedef map<int,int> mii;
+typedef map<ll,ll> mll;
 int main(){
-    ll t;
-    cin>>t;
-    while(t--){
-        
-    }
+    
 }
+//plantillita
