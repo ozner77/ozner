@@ -8,7 +8,7 @@ int main(){
     while(t--){
         cin>>a>>b;
         if(a==1 && b==1){
-            cout<<abs(a-b)+1<<"\n";
+            cout<<1<<"\n";
         }else{
             cout<<abs(a-b)<<"\n";
         }

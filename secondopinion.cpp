@@ -14,17 +14,14 @@ typedef pair<ll,ll> pll;
 typedef pair<int,int> pii;
 typedef map<int,int> mii;
 typedef map<ll,ll> mll;
-typedef vector<ll> vl;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef vector<vl> vvl;
-typedef vector<pii> vpii;
-typedef vector<pll> vpll;
-typedef vector<vpii> vvpii;
-typedef vector<vpll> vvpll;
-typedef vector<vvi> vvvi;
-typedef vector<vvl> vvvl;
 int main(){
-    
+    ll n;
+    cin>>n;
+    ll hours,minutes,seconds;
+    hours=n/3600;
+    n=n%3600;
+    minutes=n/60;
+    n=n%60;
+    seconds=n;
+    cout<<hours<<" : "<<minutes<<" : "<<seconds<<"\n";
 }
-//plantillita

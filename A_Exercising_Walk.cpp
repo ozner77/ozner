@@ -14,17 +14,22 @@ typedef pair<ll,ll> pll;
 typedef pair<int,int> pii;
 typedef map<int,int> mii;
 typedef map<ll,ll> mll;
-typedef vector<ll> vl;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef vector<vl> vvl;
-typedef vector<pii> vpii;
-typedef vector<pll> vpll;
-typedef vector<vpii> vvpii;
-typedef vector<vpll> vvpll;
-typedef vector<vvi> vvvi;
-typedef vector<vvl> vvvl;
 int main(){
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll a,b,c,d,x,y,x1,y1,x2,y2;
+        cin>>a>>b>>c>>d>>x>>y>>x1>>y1>>x2>>y2;
+        if(x1==x2 && (a>0 || b>0)){
+            cout<<"NO\n";
+        }else if(y1==y2 && (c>0 || d>0)){
+            cout<<"NO\n";
+        }
+        else if(x1<=x-a+b && x+b-a<=x2 && y1<=y-c+d && y+d-c<=y2){
+            cout<<"YES\n";
+        }else{
+            cout<<"NO\n";
+        }
+    }
 }
 //plantillita
