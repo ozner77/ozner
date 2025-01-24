@@ -40,7 +40,7 @@ typedef map<ll,ll> mll;
 }*/
 bool com;
 vector<bool> visited;
-ll dfs(ll nodo,ll m,vector<vector<ll>> adj){
+ll dfs(ll nodo,ll m,vector<vector<ll>> &adj){
     ll res=m;
     visited[nodo]=true;
     for(auto x:adj[nodo]){
