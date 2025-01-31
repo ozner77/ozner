@@ -26,13 +26,19 @@ typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 vvl dp;
 vl V;
-ll fun(ll x,ll y){
+ll fun(ll x,ll y,ll anty){
+    if(x>anty || y>anty){
+        return 0;
+    }
     if(x>=y){
         return 1;
     }
-    for(int i=x;i<y;i++){
+    if(dp[x][y]!=1e9){
+        return dp[x][y];
+    }
+    for(int i=x;i<=y;i++){
         if(V[x]==V[i]){
-            dp[x][y]=min(dp[x][y],fun(x+1,i-1));
+            dp[x][y]=min(dp[x][y],fun(x+1,i-1,y)+fun(i+1,y,y));
         }
     }
     return dp[x][y];
@@ -45,10 +51,10 @@ int main(){
         cin>>a;
         V.pb(a);
     }
-    vector<ll> caca(1e9,n);
+    vector<ll> caca(n,1e9);
     for(int i=0;i<n;i++){
         dp.pb(caca);
-    }
-    cout<<fun(0,n-1);
+    }                                             
+    cout<<fun(0,n-1,n);
 }
 //plantillita
