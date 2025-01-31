@@ -14,7 +14,22 @@ typedef pair<ll,ll> pll;
 typedef pair<int,int> pii;
 typedef map<int,int> mii;
 typedef map<ll,ll> mll;
+typedef vector<ll> vl;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<vl> vvl;
+typedef vector<pii> vpii;
+typedef vector<pll> vpll;
+typedef vector<vpii> vvpii;
+typedef vector<vpll> vvpll;
+typedef vector<vvi> vvvi;
+typedef vector<vvl> vvvl;
 int main(){
+    ll n;
+    cin>>n;
+    ll a=n/5;
+    ll b=n/10;
+    ll c=n/15;
     
 }
 //plantillita

@@ -50,14 +50,14 @@ int main(){
                     continue;
                 }else if(V[i].s==1){
                     if(i-1>=0 && i+1<V.size()){
-                    if(V[i-1].s>=2 || V[i+1].s>=2){
-                        V[i].s=V[i-1].s+V[i+1].s;
-                        V[i-1].f='L';
-                        V[i+1].f='L';
-                        V[i].f='W';
-                        con++;
-                        break;
-                    }
+                        if(V[i-1].s>=2 || V[i+1].s>=2){
+                            V[i].s=V[i-1].s+V[i+1].s;
+                            V[i-1].f='L';
+                            V[i+1].f='L';
+                            V[i].f='W';
+                            con++;
+                            break;
+                        }
                     }
                 }else if(V[i].s==2){
                     if(i-1>=0 && i+1<V.size()){
