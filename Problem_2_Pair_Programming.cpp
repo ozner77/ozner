@@ -14,6 +14,9 @@ typedef pair<ll,ll> pll;
 typedef pair<int,int> pii;
 typedef map<int,int> mii;
 typedef map<ll,ll> mll;
+typedef unordered_map<ll,ll> umll;
+typedef set<ll> sl;
+typedef unordered_set<ll> usl;
 typedef vector<ll> vl;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
@@ -24,31 +27,6 @@ typedef vector<vpii> vvpii;
 typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
-vvl dp;
-vl V;
-ll fun(ll x,ll y){
-    if(x>=y){
-        return 1;
-    }
-    for(int i=x;i<y;i++){
-        if(V[x]==V[i]){
-            dp[x][y]=min(dp[x][y],fun(x+1,i-1));
-        }
-    }
-    return dp[x][y];
-}
 int main(){
-    ll n;
-    cin>>n;
-    for(int i=0;i<n;i++){
-        ll a;
-        cin>>a;
-        V.pb(a);
-    }
-    vector<ll> caca(1e9,n);
-    for(int i=0;i<n;i++){
-        dp.pb(caca);
-    }
-    cout<<fun(0,n-1);
+    
 }
-//plantillita

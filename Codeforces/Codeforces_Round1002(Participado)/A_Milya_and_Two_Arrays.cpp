@@ -14,9 +14,6 @@ typedef pair<ll,ll> pll;
 typedef pair<int,int> pii;
 typedef map<int,int> mii;
 typedef map<ll,ll> mll;
-typedef unordered_map<ll,ll> umll;
-typedef set<ll> sl;
-typedef unordered_set<ll> usl;
 typedef vector<ll> vl;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
@@ -28,5 +25,29 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    
+    set<ll> s,s2;
+    ll t;
+    cin>>t;
+    while(t--){
+        s.clear();
+        s2.clear();
+        ll n;
+        cin>>n;
+        for(ll i=0;i<n;i++){
+            ll a;
+            cin>>a;
+            s.insert(a);
+        }
+        for(ll i=0;i<n;i++){
+            ll a;
+            cin>>a;
+            s2.insert(a);
+        }
+        if(s.size()+s2.size()>=4){
+            cout<<"YES\n";
+        }else{
+            cout<<"NO\n";
+        }
+    }
 }
+//plantillita

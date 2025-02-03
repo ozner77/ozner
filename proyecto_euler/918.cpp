@@ -24,31 +24,26 @@ typedef vector<vpii> vvpii;
 typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
-int main(){
-    long long n;
-    vector<ll> V;
-    cin>>n;
-    while(n--){
-        ll a;
-        cin>>a;
-        V.pb(a);
+unordered_map<ll, ll> M;
+
+ll caca(ll x) {
+    if (x==1){
+        return 1;
     }
-    double uwu=(double)V[1]/(double)V[0];
-    ll valor=V[0];
-    bool ok=true;
-    for(int i=0;i<V.size();i++){
-        if(valor==V[i]){
-            continue;
-        }else{
-            cout<<V[i];
-            ok=false;
-        }
-        valor*=uwu;
+    if (M[x]!=0){
+        return M[x];
     }
-    if(ok){
-        cout<<"Yes";
-    }else{
-        cout<<"No";
+    ll res;
+    if (x%2==0) {
+        res=2*caca(x/2);
+    } else {
+        ll a=caca(x/2);
+        ll b=caca(x/2+1);
+        res=a-3*b;
     }
+    M[x]=res;
+    return res;
 }
-//plantillita
+int main() {
+    cout<<-(caca(1+((100-2)/2)))+4;
+}

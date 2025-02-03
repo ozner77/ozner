@@ -25,13 +25,5 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    long long n1,n2,suma=0;
-    cin>>n1;
-    vector<long long> V;
-    for(long long n3=0L;n3<n1;n3++){
-        cin>>n2;
-        V.push_back(n2);
-    }for(auto x:V){
-        suma=suma+x;
-    }cout<<suma;
+    
 }
