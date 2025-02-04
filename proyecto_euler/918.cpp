@@ -25,7 +25,6 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 unordered_map<ll, ll> M;
-
 ll caca(ll x) {
     if (x==1){
         return 1;
@@ -45,5 +44,7 @@ ll caca(ll x) {
     return res;
 }
 int main() {
-    cout<<-(caca(1+((100-2)/2)))+4;
+    ll x=1e12;
+    cout<<-(caca(1+((x-2)/2)))+4;
+    //solo funciona cuando x es par
 }
