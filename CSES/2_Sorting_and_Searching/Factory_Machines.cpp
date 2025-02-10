@@ -2,39 +2,49 @@
 #define pb push_back()
 #include <bits/stdc++.h>
 using namespace std;
-bool f(ll x,vector<ll> V,ll m){
-    ll suma=0;
-    for(auto y:V){
-        suma=suma+(x/y);
-        if(suma>=m){
-            return true;
-        }
-    }
-    if(suma>=m){
-        return true;
-    }else{
-        return false;
-    }
-}
 int main(){
-    ll n,m;
-    cin>>n>>m;
+    ll t,n;
+    cin>>n>>t;
+    ll a;
     vector<ll> V;
-    for(int i=0;i<n;i++){
-        ll a;
+    while(n--){
         cin>>a;
         V.push_back(a);
     }
-    ll l,r,med;
+    ll r,l,m;
     l=0;
     r=2000000000000000001;
-    while(l<r){
-        med=(l+r)/2;
-        if(f(med,V,m)){
-            r=med;
+    ll res;
+    bool com=false;
+    while(r>l){
+        m=(r+l)/2;
+        long long suma=0;
+        ll suma2=0;
+        for(auto x:V){
+            if(suma>t){
+                break;
+            }
+            suma=suma+m/x;
+            if(m!=0){
+                suma2+=(m-1)/x;
+            }
+        }
+        if(suma==t){
+            if(suma2!=suma){
+                com=true;
+                break;
+            }else if(m==0){
+                com=true;
+                break;
+            }else{
+                r=m;
+            }
+        }else if(suma>t){
+            r=m;
         }else{
-            l=med+1;
+            l=m+1;
         }
     }
-    cout<<r;
+    m=(l+r)/2;
+    cout<<m;
 }
