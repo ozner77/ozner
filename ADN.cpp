@@ -1,25 +1,24 @@
 #define ll long long
 #include <bits/stdc++.h>
 using namespace std;
-int n;
 string a1,b1;
-vector<vector<int>> psum;
+int n;
 void init(string a,string b){
     a1=a;b1=b;
-	n=a.size(); 
+    n=a.size();
 }
 int get_distance(int x, int y){
-    map<int,int> M;
-    map<int,int> M1;
-    ll res=0;
-	for(int i=x;i<=y;i++){
+    map<char,int> M;
+    map<char,int> M1;
+    int res=0;
+ for(int i=x;i<=y;i++){
         M[a1[i]]++;
         M1[b1[i]]++;
         if(a1[i]!=b1[i]){
             res++;
         }
     }
-    bool com=LDBL_TRUE_MIN;
+    bool com=false;
     for(auto x:M){
         if(x.second==M1[x.first]){
             continue;
@@ -27,10 +26,11 @@ int get_distance(int x, int y){
             return -1;
         }
     }
-    if(res%2!=0){
+    if(res%2==0){
+        return res/2;
+    }else{
         return (res/2)+1;
     }
-    return res/2;
 }
 int main(){
     init("TCAAT","ATCTA");

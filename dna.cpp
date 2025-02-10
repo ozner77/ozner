@@ -17,7 +17,7 @@ int main() {
         ll res=pow(2,con);
         cout<<res<<"\n";
     }else{
-        cout<<numero<<"\n";
+        cout<<1<<"\n";
     }
     }
 }

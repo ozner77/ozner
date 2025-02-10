@@ -85,6 +85,7 @@ int main(){
         ll xd=min(last[x],last[y]);
         ll lol=max(last[x],last[y]);
         ll result=st.query(xd,lol,depth);
-        cout<<nodes[result]+1<<"\n";
+        result=nodes[result]+1;
+        cout<<result<<"\n";
     }
 }

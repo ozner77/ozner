@@ -15,6 +15,9 @@ int main(){
         if(d==5){
             cout<<"5 ";
         }
+        if(d==7){
+            cout<<"7 ";
+        }
         cout<<"\n";
     }
 }
