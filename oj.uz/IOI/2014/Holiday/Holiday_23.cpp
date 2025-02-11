@@ -25,15 +25,26 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 set<ll> s;
-long long int findMaxAttraction(int n, int start, int d,int attraction[]){
-
+vector<ll> res;
+int findMaxAttraction(int n, int start, int d,int attraction[]){
+    if(start==0){
+        
+    }else{
+        return 1;
+    }
 }
 int main(){
     ll n,start,d;
-    n=10;
+    n=100000;
     start=0;
-    d=5;
-    ll V[n];
-
-    cout<<findMaxAttraction(n,start,d,V);
+    d=100001;
+    int V[n];
+    for(int i=0;i<n;i++){
+        V[i]=100;
+    }
+    /*for(auto x:res){
+        cout<<x<<" ";
+    }*/
+    ll ans=findMaxAttraction(n,start,d,V);
+    cout<<ans;
 }
