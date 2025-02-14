@@ -26,25 +26,39 @@ typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 set<ll> s;
 vector<ll> res;
-int findMaxAttraction(int n, int start, int d,int attraction[]){
-    if(start==0){
-        
-    }else{
-        return 1;
+ll findMaxAttraction(int n, int start, int d, int attraction[]){
+    ll res=0;
+    for(ll i=start;i>=0;i--){
+        priority_queue<int, vector<int>, greater<int>> pq;
+        ll ans=0;
+        for(ll j=i;j<n;j++){
+            pq.push(attraction[j]);
+            ans+=attraction[j];
+            if(j<start){
+                continue;
+            }
+            ll visit1=(start-i)*2+(j-start);
+            ll visit2=(start-i)+(j-start)*2;
+            ll visit=d-min(visit1,visit2);
+            if(visit<=0){
+                break;
+            }
+            while(pq.size()>visit){
+                ans-=pq.top();
+                pq.pop();
+            }
+            res=max(res,ans);
+        }
     }
+    return res;
 }
 int main(){
     ll n,start,d;
-    n=100000;
-    start=0;
-    d=100001;
-    int V[n];
-    for(int i=0;i<n;i++){
-        V[i]=100;
-    }
-    /*for(auto x:res){
-        cout<<x<<" ";
-    }*/
+    n=15;
+    start=1;
+    d=14;
+    int V[15]={100,1,1,1,1,1,1,1,1,1,1,1,1,1,100};
     ll ans=findMaxAttraction(n,start,d,V);
     cout<<ans;
 }
+//me costo mas entender de lo que me gustaría, pero gracias Agus
