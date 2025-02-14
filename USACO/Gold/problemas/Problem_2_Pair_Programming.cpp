@@ -27,45 +27,23 @@ typedef vector<vpii> vvpii;
 typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
-ll xd;
-string s;
-string s2;
-unordered_set<string> uwu;
-string program(string N){
-    map<char,ll> M;
-    char var='a';
-    reverse(all(N));
-    string res="";
-    ll acum=1;
-    for(int i=0;i<N.size();i++){
-        if(N[i]=='+'){
-            M[var]=acum;
-            var++;
-        }else{
-            ll caca=N[i]-'0';
-            acum*=caca;
+ll MOD=1000000007;
+string bruh(string x){
+    string ans="";
+    for(auto y:x){
+        char c=y;
+        if(c=='1'){
+            continue;
         }
-    }
-    for(auto x:M){
-        if(x.second>0){
-            res=res+to_string(x.s);
-            res=res+x.f;
+        if(c=='0'){
+            ans="";
         }
+        if(c!='+'){
+            c='2';
+        }
+        ans+=c;
     }
-    sort(all(res));
-    return res;
-}
-void generar(string cad,ll pos,ll pos2){
-    if(cad.size()==xd){
-        uwu.insert(program(cad));
-        return;
-    }
-    if(pos<xd/2){
-        generar(cad+s[pos],pos+1,pos2);
-    }
-    if(pos2<xd/2){
-        generar(cad+s2[pos2],pos,pos2+1);
-    }
+    return ans;
 }
 int main(){
     ll t;
@@ -73,13 +51,57 @@ int main(){
     while(t--){
         ll n;
         cin>>n;
-        cin>>s;
-        cin>>s2;
-        xd=2*n;
-        uwu.clear();
-        generar("",0,0);
-        cout<<uwu.size();
-        cout<<"\n";
+        string a,b;
+        cin>>a>>b;
+        a=bruh(a);
+        b=bruh(b);
+        ll xd=a.size();
+        ll lol=b.size();
+        vector<int> V={0,0};
+        vector<vector<int>> L;
+        for(ll i=0;i<=lol;i++){
+            L.pb(V);
+        }
+        vector<vector<vector<int>>> dp;
+        for(ll i=0;i<=xd;i++){
+            dp.pb(L);
+        }
+        //cout<<dp[0][0][0];
+        dp[0][0][0]=1;
+
+        ll res=0;
+        for(ll i=0;i<=xd;i++){
+            for(ll j=0;j<=lol;j++){
+                for(ll k=0;k<2;k++){
+                    ll act=dp[i][j][k];
+                    if(act==0){
+                        continue;
+                    }
+                    if(j==lol && i==xd){
+                        res=(res+act)%MOD;
+                    }else {
+                        if(j<lol){
+                            dp[i][j+1][1]=(dp[i][j+1][1]+act)%MOD;
+                        }
+                        if (k == 0){
+                            if(i<xd){
+                                dp[i+1][j][0]=(dp[i+1][j][0]+act)%MOD;
+                            }
+                        }
+                        else{
+                            if(j>0){
+                                if (i<xd && b[j-1]!=a[i]){
+                                    dp[i+1][j][0]=(dp[i+1][j][0]+act)%MOD;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        cout<<res<<"\n";
     }
 }
 //no puedo, no pienso bien
+//ENTENDER ESTO ES UNA MRDDDDDDDDDDDDDDDDDD
+//ODIO ESTO LLEVO 2 HORAS AQUIIII >:((((()))))
