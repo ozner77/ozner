@@ -33,15 +33,42 @@ int main(){
     while(t--){
         ll n;
         cin>>n;
-        n=n%100;
-        if(n%11==0){
-            cout<<"YES\n";
-        }else{
-            if(n<10){
-                cout<<"YES\n";
+        vl V;
+        unordered_map<ll,ll> M;
+        for(ll i=0;i<n;i++){
+            ll a;
+            cin>>a;
+            V.pb(a);
+            M[a]++;
+        }
+        ll ans[3]={0,0,0};
+        ll con=0;
+        ll l,r;
+        for(ll i=0;i<n;i++){
+            if(M[V[i]]==1){
+                if(con==0){
+                    l=i;
+                }
+                r=i;
+                con++;
             }else{
-                cout<<"NO\n";
+                if(con>=ans[0]){
+                    ans[0]=con;
+                    ans[1]=l;
+                    ans[2]=r;
+                    con=0;
+                }
             }
+        }
+        if(con>=ans[0]){
+            ans[0]=con;
+            ans[1]=l;
+            ans[2]=r;
+        }
+        if(ans[0]==0){
+            cout<<0<<"\n";
+        }else{
+            cout<<ans[1]+1<<" "<<ans[2]+1<<"\n";
         }
     }
 }
