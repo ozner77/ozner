@@ -28,5 +28,28 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    
+    string s;
+    cin>>s;
+    vector<char> V;
+    for(auto x:s){
+        V.pb(x);
+    }
+    for(ll i=1;i<V.size();i++){
+        if(V[i]=='A' && V[i-1]=='W'){
+            V[i]='C';
+            ll uwu=i-1;
+            while(uwu>=0){
+                if(V[uwu]!='W'){
+                    break;
+                }else{
+                    V[uwu]='C';
+                }
+                uwu--;
+            }
+            V[uwu+1]='A';
+        }
+    }
+    for(auto x:V){
+        cout<<x;
+    }
 }

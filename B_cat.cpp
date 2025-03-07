@@ -28,5 +28,27 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    
+    ll n;
+    cin>>n;
+    vector<char> C;
+    vector<vector<char>> V;
+    vector<pll> res;
+    ll c=0;
+    while(n--){
+        C.clear();
+        string s;
+        cin>>s;
+        res.pb(mp(s.size(),c));
+        for(auto x:s){
+            C.pb(x);
+        }
+        V.pb(C);
+        c++;
+    }
+    sort(all(res));
+    for(auto x:res){
+        for(auto y:V[x.s]){
+            cout<<y;
+        }
+    }
 }

@@ -28,5 +28,27 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    
+    ll n;
+    cin>>n;
+    umll M;
+    vl P(n+2);
+    P[0]=0;
+    vl V(n+1);
+    for(ll i=0;i<n;i++){
+        ll a;
+        cin>>a;
+        M[a]++;
+    }
+    for(ll i=0;i<=n;i++){
+        if(M[i]==0){
+            V[i]=1;
+        }
+    }
+    for(ll i=1;i<=n+1;i++){
+        P[i]=P[i-1]+V[i-1];
+    }
+    for(ll i=0;i<=n;i++){
+        cout<<max(M[i],P[i])<<"\n";
+    }
 }
+//los problem 2 siempre son tan fáciles?

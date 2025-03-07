@@ -28,5 +28,15 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    
+    string s;
+    cin>>s;
+    ll c=0;
+    for(auto x:s){
+        if(x=='2'){
+            c++;
+        }
+    }
+    for(ll i=0;i<c;i++){
+        cout<<"2";
+    }
 }

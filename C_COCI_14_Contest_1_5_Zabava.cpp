@@ -28,5 +28,25 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    
+    ll n,m,k;
+    cin>>n>>m>>k;
+    k++;
+    ll res=0;
+    ll a=n/k;
+    ll b=n%k;
+    if(b>0){
+        b+=a;
+        k--;
+    }
+
+    if(b>a+1){
+        ll c=b-(a+1);
+        res+=c*(a+1);
+        res+=((a+1)*(a+2))/2;
+    }else{
+        res+=(b*(b+1))/2;
+    }
+    res+=((a*(a+1))/2)*(k);
+    cout<<res;
+    //amo la formula de sumatoria :)
 }
