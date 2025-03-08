@@ -27,19 +27,15 @@ typedef vector<vpii> vvpii;
 typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
-vector<ll> obtenerDivisores(const vector<ll>& divs) {
+vector<ll> divisores(const vector<ll>& divs) {
     vector<ll> divisores;
-    divisores.push_back(1);  // El 1 es siempre un divisor
-
-    // Recorremos cada primo y generamos todos los divisores posibles
-    for (int p : divs) {
-        int n = divisores.size();
-        for (int i = 0; i < n; ++i) {
-            int nuevo_divisor = divisores[i] * p;
-            divisores.push_back(nuevo_divisor);
+    divisores.push_back(1);
+    for (ll x:divs) {
+        for (ll i=0;i<divisores.size(); ++i) {
+            ll nuevo=divisores[i]*x;
+            divisores.push_back(nuevo);
         }
     }
-    
     return divisores;
 }
 int main(){
@@ -68,7 +64,7 @@ int main(){
             divs.pb(prime2[div]);
             div=div/prime2[div];
         }
-        vl real=obtenerDivisores(divs);
+        vl real=divisores(divs);
 
         div=prime1[i]-1;
         bool ok=true;
@@ -82,5 +78,5 @@ int main(){
         }
     }
     cout<<res+1;
-    //falta 1
+    //+1 porque no cuenta el numero 1
 }
