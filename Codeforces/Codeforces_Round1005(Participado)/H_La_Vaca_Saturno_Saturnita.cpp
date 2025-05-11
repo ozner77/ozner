@@ -28,11 +28,5 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    ll a,b,c;
-    cin>>a>>b>>c;
-    if(a*b==c || a*c==b || c*b==a){
-        cout<<"Yes";
-    }else{
-        cout<<"NO";
-    }
+    
 }

@@ -28,18 +28,9 @@ typedef vector<vpll> vvpll;
 typedef vector<vvi> vvvi;
 typedef vector<vvl> vvvl;
 int main(){
-    umll M;
-    ll n,m;
-    cin>>n>>m;
-    for(ll i=0;i<m;i++){
-        ll a;
-        cin>>a;
-        M[a]++;
-    }
-    cout<<n-M.size()<<"\n";
-    for(ll i=1;i<=n;i++){
-        if(M[i]==0){
-            cout<<i<<" ";
-        }
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n;
     }
 }
