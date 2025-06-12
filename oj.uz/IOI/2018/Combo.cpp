@@ -1,7 +1,10 @@
-#include "combo.h"
+//#include "combo.h"
 #include <bits/stdc++.h>
 using namespace std;
 string s="";
+int press(string a){
+    return 1;
+}
 string guess_sequence(int N){
     if(N==1){
     if(press("A")){
