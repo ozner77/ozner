@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+//#include "artclass.h"
 using namespace std;
 vector<vector<int>> r,g,b;
 int xd(int a,int t,int x,int y){
@@ -33,22 +34,15 @@ int style(int H, int W, int R[500][500], int G[500][500], int B[500][500]) {
         }
     }
     int ans=dif/pixel;
-    return ans;
-}
-int main(){
-    int h,w;
-    cin>>h>>w;
-    int R[500][500];
-    int G[500][500];
-    int B[500][500];
-    for(int i=0;i<h;i++){
-        for(int j=0;j<w;j++){
-            int a,b,c;
-            cin>>a>>b>>c;
-            R[i][j]=a;
-            G[i][j]=b;
-            B[i][j]=c;
-        }
+    if(ans< 10){
+        return 4;
+    }else if(ans<27){
+        return 1;
     }
-    cout<<style(h,w,R,G,B);
+	else if(ans<55){
+        return 2;
+    }
+	else{
+        return 3;
+    }
 }
